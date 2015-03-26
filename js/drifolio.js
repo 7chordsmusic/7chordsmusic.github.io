@@ -1,49 +1,21 @@
-//==========================================================
-//Replace srizon with your dribbble username
-//==========================================================
-$.jribbble.getShotsByPlayerId('srizon', function (playerShots) {
-    var html = [];
+var html = [];
 
+var youTubeVideos = [
+  { "videoId": "h8MSere_Gr8", "title": "Count on me... by Ashni Modi" },
+  { "videoId": "H2BkgQbexco", "title": "Teri galiyaan... by Ashni Modi." },
+  { "videoId": "F23DQD5FWCk", "title": "Ishq bulava... by Chirag Solanki." },
+  { "videoId": "f2Xlq0MzVYI", "title": "Give thanks... by Joy Ashish" }
+]
 
-//========================
-//PORTFOLIO SETUP
-//========================
-    $.each(playerShots.shots, function (i, shot) {
-        html.push('<li><a href="' + shot.url + '">');
-        html.push('<img src="' + shot.image_teaser_url + '" ');
-        html.push('alt="' + shot.title + '"></a>');
-        html.push('<h3><a href="' + shot.url + '">' + shot.title + '</h3>');
-        html.push('<div class="likecount"><span class="icon-heart"></span> ' + shot.likes_count + '</div>');
-        html.push('<div class="commentcount"><span class="icon-bubbles"></span> ' + shot.comments_count + '</a></li></div>');
+$.each(youTubeVideos, function (i, youTubeVideo) {
+        html.push('<li><a href="' + youTubeVideo.title + '">');
+        html.push('<iframe width="420" height="315" src="https://www.youtube.com/embed/' + youTubeVideo.videoId + '" frameborder="0" allowfullscreen="" style="width: 100%;"></iframe>');
+        html.push('</a>');
+        html.push('<h3><a href="' + youTubeVideo.title + '">' + youTubeVideo.title + '</h3>');
+        html.push('</a></li>');
     });
 
-    $('#shotsByPlayerId').html(html.join(''));
-}, {page: 1, per_page: 9});
-
-//========================
-//Follow button
-//========================
-
-$(function() {
-
-
-	// SOME VARIABLES
-	var button = '.dribbble-follow-button',
-		label = $(button).text(),
-		username = $('a'+button).attr('href').toLowerCase().replace('http://dribbble.com/', ''),
-		disableCount = $(button).attr('class');
-
-	// DISPLAYED WHEN THE API IS NOT RESPONDING
-	$(button).wrap('<div class="dribbble-follow-button" />').removeClass().addClass('label').html('<i></i> '+label);
-
-	// REQUESTS USER'S DATA FROM DRIBBBLE'S API AND APPENDS IT
-	$.getJSON('http://api.dribbble.com/players/'+username+'?callback=?', function(data) {
-		$(button).wrap('<div class="dribbble-follow-button '+disableCount+'" />')
-        .parent().html('<a class="label" href="http://dribbble.com/'+username+'" target="_blank"><i></i>'+label+'</a><a class="count" href="http://dribbble.com/'+username+'/followers" target="_blank"><i></i><u></u>'+data.followers_count+' followers</a>');
-		$(button+'.disableCount').find('.count').remove();
-	});
-
-});
+$('#shotsByPlayerId').html(html.join(''));
 
 
 //========================

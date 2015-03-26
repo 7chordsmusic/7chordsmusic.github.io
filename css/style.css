@@ -14,6 +14,7 @@ body {
 }
 
 .bigicon {font-size: 3em;}
+h1{font-size: 65px;}
 h2{font-size: 42px;}
 h3{font-size: 28px;}
 h4{font-size: 18px; line-height: 1.4em;}
@@ -75,13 +76,13 @@ HERO AREA
     color: #8B4032;
     text-align: center;
     background-color: #fb7f4d;
-    background: url(../img/trianglify-background.svg)no-repeat; /*your background image*/
+    background: url(../img/trianglify-background.svg)no-repeat;
     max-height: 880px;
     overflow: hidden;
 }
 
 .herocontent{
-    padding-top: 100px;
+    padding-top: 50px;
     width: 100%;
     max-width: 900px;
 }
