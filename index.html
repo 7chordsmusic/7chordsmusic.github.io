@@ -229,7 +229,16 @@
         
         <!-- PORTFOLIO ITEMS START -->
         <div class="portfolioitems container">
-            <ul><div id="shotsByPlayerId"> </div></ul><!--REFER TO THE js/drifolio.js-->
+
+            <ul>
+            <div id="shotsByPlayerId" class="row">
+
+                <!-- The container for the list of example images for blue imp -->
+                <div id="videos-gallery"></div>
+
+            </div>
+            </ul>
+
         </div><!-- PORTFOLIO ITEMS END -->
         
         <!--Replace the URL below with your dribbble profile URL-->
@@ -376,7 +385,7 @@
      </footer><!-- FOOTER END -->
     
     <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
-    <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
+    <div id="blueimp-image-gallery" class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
         <!-- The container for the modal slides -->
         <div class="slides"></div>
         <!-- Controls for the borderless lightbox -->
@@ -409,6 +418,7 @@
             </div>
         </div>
     </div>
+    <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -420,6 +430,7 @@
     <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
     <script src="js/bootstrap-image-gallery.min.js"></script>
     <script src="js/image-gallery.js"></script>
+    <script src="js/video-gallery.js"></script>
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/jquery.jribbble-1.0.1.ugly.js"></script>
     <script src="js/drifolio.js"></script>

@@ -1,23 +1,4 @@
-var html = [];
-
-var youTubeVideos = [
-  { "videoId": "h8MSere_Gr8", "title": "Count on me... by Ashni Modi" },
-  { "videoId": "H2BkgQbexco", "title": "Teri galiyaan... by Ashni Modi." },
-  { "videoId": "F23DQD5FWCk", "title": "Ishq bulava... by Chirag Solanki." },
-  { "videoId": "f2Xlq0MzVYI", "title": "Give thanks... by Joy Ashish" }
-]
-
-$.each(youTubeVideos, function (i, youTubeVideo) {
-        html.push('<li><a href="' + youTubeVideo.title + '">');
-        html.push('<iframe width="420" height="315" src="https://www.youtube.com/embed/' + youTubeVideo.videoId + '" frameborder="0" allowfullscreen="" style="width: 100%;"></iframe>');
-        html.push('</a>');
-        html.push('<h3><a href="' + youTubeVideo.title + '">' + youTubeVideo.title + '</h3>');
-        html.push('</a></li>');
-    });
-
-$('#shotsByPlayerId').html(html.join(''));
-
-
+// https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=10&playlistId=PL4A0CFFF50A8993AD&key=AIzaSyBPvS0Svzi2ibyFlxZfHcp0orZZfHB0ZP4
 //========================
 //PRELOADER
 //========================

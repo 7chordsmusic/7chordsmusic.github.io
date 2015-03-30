@@ -25,7 +25,7 @@ $(function () {
             photoset_id: '72157649334580713',
             user_id: '124469040@N04',
             method: 'flickr.photosets.getPhotos',
-            api_key: 'd7929389e368aab8e7112b2aa60b1e86' // jshint ignore:line
+            api_key: 'd7929389e368aab8e7112b2aa60b1e86' // h5
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
@@ -36,69 +36,13 @@ $(function () {
         $.each(result.photoset.photo, function (index, photo) {
             baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
                 photo.server + '/' + photo.id + '_' + photo.secret;
-            $('<a/>')
+            $('<a />')
                 .append($('<img style="width: 100px">').prop('src', baseUrl + '_s.jpg'))
                 .prop('href', baseUrl + '_b.jpg')
                 .prop('title', photo.title)
-                .attr('data-gallery', '')
+                .attr('data-gallery', '#blueimp-image-gallery')
                 .appendTo(linksContainer);
         });
-    });
-
-    $('#borderless-checkbox').on('change', function () {
-        var borderless = $(this).is(':checked');
-        $('#blueimp-gallery').data('useBootstrapModal', !borderless);
-        $('#blueimp-gallery').toggleClass('blueimp-gallery-controls', borderless);
-    });
-
-    $('#fullscreen-checkbox').on('change', function () {
-        $('#blueimp-gallery').data('fullScreen', $(this).is(':checked'));
-    });
-
-    $('#image-gallery-button').on('click', function (event) {
-        event.preventDefault();
-        blueimp.Gallery($('#links a'), $('#blueimp-gallery').data());
-    });
-
-    $('#video-gallery-button').on('click', function (event) {
-        event.preventDefault();
-        blueimp.Gallery([
-            {
-                title: 'Sintel',
-                href: 'https://archive.org/download/Sintel/sintel-2048-surround_512kb.mp4',
-                type: 'video/mp4',
-                poster: 'https://i.imgur.com/MUSw4Zu.jpg'
-            },
-            {
-                title: 'Big Buck Bunny',
-                href: 'https://upload.wikimedia.org/wikipedia/commons/7/75/' +
-                    'Big_Buck_Bunny_Trailer_400p.ogg',
-                type: 'video/ogg',
-                poster: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/' +
-                    'Big.Buck.Bunny.-.Opening.Screen.png/' +
-                    '800px-Big.Buck.Bunny.-.Opening.Screen.png'
-            },
-            {
-                title: 'Elephants Dream',
-                href: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/8/83/' +
-                    'Elephants_Dream_%28high_quality%29.ogv/' +
-                    'Elephants_Dream_%28high_quality%29.ogv.360p.webm',
-                type: 'video/webm',
-                poster: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/' +
-                    'Elephants_Dream_s1_proog.jpg/800px-Elephants_Dream_s1_proog.jpg'
-            },
-            {
-                title: 'LES TWINS - An Industry Ahead',
-                type: 'text/html',
-                youtube: 'zi4CIXpx7Bg'
-            },
-            {
-                title: 'KN1GHT - Last Moon',
-                type: 'text/html',
-                vimeo: '73686146',
-                poster: 'https://secure-a.vimeocdn.com/ts/448/835/448835699_960.jpg'
-            }
-        ], $('#blueimp-gallery').data());
     });
 
 });
